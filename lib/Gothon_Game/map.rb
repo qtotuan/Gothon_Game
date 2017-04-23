@@ -119,6 +119,8 @@ module Map
 
 
   THE_BRIDGE.add_paths({
+    'eat the bomb' => GENERIC_DEATH,
+    'juggle the bomb' => GENERIC_DEATH,
     'throw the bomb' => GENERIC_DEATH,
     'slowly place the bomb' => ESCAPE_POD
     })
@@ -134,6 +136,7 @@ module Map
     })
 
   CENTRAL_CORRIDOR.add_paths({
+    'ask Mom for advice' => GENERIC_DEATH,
     'tell a joke' => LASER_WEAPON_ARMORY,
     'shoot!' => GENERIC_DEATH,
     'dodge!' => GENERIC_DEATH

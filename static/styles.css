@@ -1,12 +1,7 @@
-h1 {
-  margin-left: 20px;
-  color: green;
+#died {
+  text-align: center;
 }
 
-div {
-  background-color: green;
-}
-
-.description {
-  background-color: green;
+#playagain {
+  text-align: center;
 }

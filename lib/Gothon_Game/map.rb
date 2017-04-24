@@ -50,8 +50,8 @@ module Map
      You stand up and run to the far side of the room and find the
      neutron bomb in its container.  There's a keypad lock on the box
      and you need the code to get the bomb out.  If you get the code
-     wrong 10 times then the lock closes forever and you can't
-     get the bomb.  The code is 1 digit.
+     wrong 3 times then the lock closes forever and you can't
+     get the bomb.  The complicated code is a number between 1 and 5.
      """)
 
   THE_BRIDGE = Room.new("The Bridge",
@@ -107,11 +107,13 @@ module Map
    """
    )
 
-   WRONG_GUESS = Room.new('wrong_guess', "You guessed wrong. Try again!")
+  WRONG_GUESS = Room.new('BZZZEED!', "You guessed wrong. Try again!")
 
   ESCAPE_POD.add_paths({
+    '1' => THE_END_LOSER,
     '2' => THE_END_WINNER,
-    '*' => THE_END_LOSER
+    '3' => THE_END_LOSER
+    # '*' => THE_END_LOSER
     })
 
   GENERIC_DEATH = Room.new('death', "You died.")
@@ -126,13 +128,20 @@ module Map
     })
 
   LASER_WEAPON_ARMORY.add_paths({
+    '1' => WRONG_GUESS,
+    '2' => WRONG_GUESS,
+    '3' => WRONG_GUESS,
+    '4' => WRONG_GUESS,
     '5' => THE_BRIDGE,
     # '*' => GENERIC_DEATH
     })
 
   WRONG_GUESS.add_paths({
+    '1' => GENERIC_DEATH,
+    '2' => GENERIC_DEATH,
+    '3' => GENERIC_DEATH,
+    '4' => GENERIC_DEATH,
     '5' => THE_BRIDGE,
-    '*' => GENERIC_DEATH
     })
 
   CENTRAL_CORRIDOR.add_paths({

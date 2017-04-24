@@ -1,14 +1,21 @@
-
-
 <div class="jumbotron">
   <h1 class="page-header"> <%= room.name %> </h1>
   <p> <%= room.description %> </p>
+
+  <!-- WRONG_GUESS room: Let user know the number of guesses left: -->
+  <% if room.name == 'BZZZEED!' %>
+    <% if 3 - session[:guess] > 1 %>
+      <%= "<p>You have #{3 - session[:guess]} guesses left.</p>" %>
+    <% else %>
+      <p>You have one last guess left. Make it count!</p>
+    <% end %>
+  <% end %>
+
 </div>
 
 <% if room.name == 'death' || room.name == 'The End' %>
-  <p><a href='/'>Play again?</a></p>
+  <p id="playagain"><a href='/'>Play again?</a></p>
 <% else %>
-
     <p>
       <form method='post' action='/game'>
 
@@ -42,5 +49,7 @@
 
       </form>
     </p>
+
+
 
 <% end %>

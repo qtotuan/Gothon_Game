@@ -9,6 +9,7 @@ enable :sessions
 set :session_secret, 'BADSECRET'
 
 get '/' do
+    cache_control :public
     session[:guess] = 0
     session[:room] = 'START'
     redirect to('/game')
@@ -30,7 +31,7 @@ post '/game' do
     action = params[:action]
 
     if room == Map::LASER_WEAPON_ARMORY || room == Map::WRONG_GUESS
-      if action != '5' && session[:guess] < 3
+      if action != '5' && session[:guess] < 2
         session[:guess] += 1
         session[:room] = 'WRONG_GUESS'
         redirect to('/game')

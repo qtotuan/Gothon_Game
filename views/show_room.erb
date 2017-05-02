@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="description jumbotron">
   <h1 class="page-header"> <%= room.name %> </h1>
   <p> <%= room.description %> </p>
 
@@ -13,43 +13,44 @@
 
 </div>
 
-<% if room.name == 'death' || room.name == 'The End' %>
-  <p id="playagain"><a href='/'>Play again?</a></p>
-<% else %>
-    <p>
-      <form method='post' action='/game'>
+<div class="selection">
+  <% if room.name == 'death' || room.name == 'The End' %>
+    <p id="playagain"><a href='/'>Play again?</a></p>
+  <% else %>
+      <p>
+        <form method='post' action='/game'>
 
-        <!-- INPUT FIELD AND SUBMIT -->
-        <!-- <div class="form-group">
-          <input type="text" name='action' class="form-control" placeholder="What do you do?">
-          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-        </div> -->
+          <!-- INPUT FIELD AND SUBMIT -->
+          <!-- <div class="form-group">
+            <input type="text" name='action' class="form-control" placeholder="What do you do?">
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+          </div> -->
 
-        Select your action:
-        <select name="action">
-          <% room.paths.each do |key, value| %>
-            <%= "<option value='" + key + "'>" + key + "</option>" %>
-          <% end %>
-        </select>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-
-        <!-- DROPDOWN MENU -->
-        <!-- <div class="dropdown" method='post' action='/game' name="action">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Dropdown
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <span id="label">Select your action:</span>
+          </br>
+          </br>
+          <select id="select-menu" name="action">
             <% room.paths.each do |key, value| %>
-              <li><a href="/game"><%= key %></a></li>
+              <%= "<option value='" + key + "'>" + key + "</option>" %>
             <% end %>
-          </ul>
-        </div> -->
+          </select>
+          </br>
+          <button type="submit" class="btn btn-primary">Submit</button>
 
-      </form>
-    </p>
+          <!-- DROPDOWN MENU -->
+          <!-- <div class="dropdown" method='post' action='/game' name="action">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Dropdown
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <% room.paths.each do |key, value| %>
+                <li><a href="/game"><%= key %></a></li>
+              <% end %>
+            </ul>
+          </div> -->
 
-
-
-<% end %>
+        </form>
+      </p>
+  <% end %>
+</div><!-- .selection -->

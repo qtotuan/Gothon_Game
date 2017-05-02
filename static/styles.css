@@ -1,7 +1,166 @@
+.blink_me {
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    -moz-animation-name: blinker;
+    -moz-animation-duration: 1s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+
+    animation-name: blinker;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@-moz-keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+
+
+
+
+h1 {
+  padding: 0 20px;
+}
+
+p {
+  padding: 0 20px;
+}
+
+.wrapper {
+  padding: 0 0 20px 0;
+}
+
+.description {
+    font-family: 'Love Ya Like A Sister', cursive;
+}
+
+.selection {
+  padding: 20px;
+  font-size: 1.5em;
+  font-family: 'Press Start 2P', cursive;
+}
+
+#label {
+  font-size: 0.8em;
+  color: grey;
+  padding-bottom: 20px;
+  border-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+#select-menu {
+  margin-bottom: 30px;
+}
+
 #died {
   text-align: center;
+  font-family: 'Creepster', cursive;
+  font-size: 2em;
+}
+
+#youdied {
+  color:red;
+  font-size: 3em;
 }
 
 #playagain {
   text-align: center;
+  padding-top: 30px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+#playagain a {
+  color: blue;
+  font-size: 1.5em;
+  text-decoration: blink;
+}
+
+.won {
+  text-align: center;
+}
+
+.won h1 {
+  font-family: 'Monoton', cursive;
+  font-size: 4em;
+  margin: 40px 0;
+  color: green;
+}
+
+.won p {
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 1.5em;
+}
+
+
+/*///// ANIMATION /////*/
+
+@keyframes bacon1 {
+    from {left:50px; top:0px;}
+    to {left:50px; top:1000px;}
+}
+
+@keyframes bacon2 {
+    from {left:200px; top:0px;}
+    to {left:200px; top:1000px;}
+}
+
+@keyframes bacon3 {
+    from {left:350px; top:0px;}
+    to {left:350px; top:1000px;}
+}
+
+@keyframes bacon4 {
+    from {left:550px; top:0px;}
+    to {left:550px; top:1000px;}
+}
+
+.bacon1 {
+  position: relative;
+  animation-name: bacon1;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.bacon2 {
+  position: relative;
+  animation-name: bacon2;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.bacon3 {
+  position: relative;
+  animation-name: bacon3;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.bacon4 {
+  position: relative;
+  animation-name: bacon4;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }

@@ -17,8 +17,11 @@ end
 
 get '/game' do
     room = Map::load_room(session)
+    session[:check] = room.to_s
 
-    if room
+    if room == Map::THE_END_WINNER
+      erb :you_won
+    elsif room
         erb :show_room, :locals => {:room => room}
     else
         erb :you_died

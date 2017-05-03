@@ -114,8 +114,8 @@ p {
 /*///// ANIMATION /////*/
 
 @keyframes bacon1 {
-    from {left:50px; top:0px;}
-    to {left:50px; top:1000px;}
+    from {left:100px; top:0px;}
+    to {left:100px; top:1000px;}
 }
 
 @keyframes bacon2 {
@@ -136,7 +136,7 @@ p {
 .bacon1 {
   position: relative;
   animation-name: bacon1;
-  animation-duration: 3s;
+  animation-duration: 4s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
@@ -144,7 +144,7 @@ p {
 .bacon2 {
   position: relative;
   animation-name: bacon2;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
@@ -152,7 +152,7 @@ p {
 .bacon3 {
   position: relative;
   animation-name: bacon3;
-  animation-duration: 3s;
+  animation-duration: 2.5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }

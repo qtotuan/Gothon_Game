@@ -1,13 +1,8 @@
 <div >
-  <img src="img/bacon.png" alt="bacon" width="150px" class="bacon1">
-
-  <img src="img/bacon.png" alt="bacon" width="150px" class="bacon2">
-
-  <img src="img/bacon.png" alt="bacon" width="150px" class="bacon3">
-
-  <img src="img/bacon.png" alt="bacon" width="150px" class="bacon4">
+  <% 4.times do |i| %>
+    <%= "<img src='img/bacon.png' alt='bacon' width='150px' class='bacon#{i+1}'>" %>
+  <% end %>
 </div>
-
 
 <div class="won">
   <h1>YOU WON!</h1>

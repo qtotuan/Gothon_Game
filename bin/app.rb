@@ -1,18 +1,23 @@
 require 'sinatra'
 require './lib/Gothon_Game/map.rb'
+require 'sinatra/activerecord'
 
-set :port, 8080
-set :static, true
-set :public_folder, "static"
-set :views, "views"
-enable :sessions
-set :session_secret, 'BADSECRET'
+  set :port, 8080
+  set :static, true
+  set :public_folder, "static"
+  set :views, "views"
+  enable :sessions
+  set :session_secret, 'BADSECRET'
+
 
 get '/' do
-    cache_control :public
-    session[:guess] = 0
-    session[:room] = 'START'
-    redirect to('/game')
+  erb :welcome
+end
+
+get '/start' do
+  session[:guess] = 0
+  session[:room] = 'START'
+  redirect to('/game')
 end
 
 get '/game' do
@@ -55,6 +60,24 @@ post '/game' do
 
 end
 
+
 get '/inspect' do
   "#{session.inspect}"
+end
+
+get '/registrations/signup' do
+
+  erb :signup
+end
+
+post '/registrations' do
+  puts params
+  @user = User.create(name: params["name"], email: params["email"], password: params["password"])
+  puts "Let's see if the user was stored in the databse! =>" + @user.inspect
+  redirect to('/start')
+end
+
+get '/sessions/login' do
+
+  erb :login
 end

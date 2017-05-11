@@ -1,4 +1,7 @@
 require 'rake/testtask'
+require './config/environment'
+require 'sinatra/activerecord/rake'
+
 
 Rake::TestTask.new do |t|
   t.libs << "tests"

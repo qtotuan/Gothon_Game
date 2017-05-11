@@ -1,4 +1,5 @@
 require 'bundler/setup'
+# require './models/user.rb'
 Bundler.require
 
 ENV['SINATRA_ENV'] ||= "development"

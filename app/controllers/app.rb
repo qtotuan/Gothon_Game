@@ -5,16 +5,13 @@ require 'sinatra/activerecord'
 
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
-  set :views, Proc.new { File.join(root, "../views/") }
-
-
-
-    set :port, 8080
-    set :static, true
-    set :public_folder, "static"
-    set :views, "views"
-    enable :sessions
-    set :session_secret, 'BADSECRET'
+  # set :views, Proc.new { File.join(root, "../views/") }
+  set :port, 8080
+  set :static, true
+  set :public_folder, "static"
+  set :views, "views"
+  enable :sessions
+  set :session_secret, 'BADSECRET'
 
 
   get '/' do
@@ -61,8 +58,7 @@ class ApplicationController < Sinatra::Base
           end
 
           redirect to('/game')
-      # else
-      #     erb :you_died
+
       end
 
   end
@@ -73,25 +69,28 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/registrations/signup' do
-
     erb :signup
   end
 
   post '/registrations' do
     puts params
-    @user = User.create(name: params["name"], email: params["email"], password: params["password"])
-    # puts "Let's see if the user was stored in the databse! =>" + @user.inspect
-    erb :welcome_user
+    @user = User.new(user_params)
+    if @user.save
+      erb :welcome_user
+    else
+      params['name'] == "" ? @error_message_name = "Please indicate your name" : @name = params['name']
+      params['email'] == "" ? @error_message_email = "Please indicate your email" : @email = params['email']
+      params['password'] == "" ? @error_message_password = "Please indicate your password" : @password = params['password']
+      erb :signup
+    end
   end
 
   get '/sessions/login' do
-
     erb :login
   end
 
 
   post '/sessions' do
-    # puts params
     @user = User.find_by(email: params["email"], password: params["password"])
     if @user
       session[:id] = @user.id
@@ -122,7 +121,7 @@ class ApplicationController < Sinatra::Base
   post '/edit/:id' do
     id = params['id']
     @user = User.find(id)
-    @user.update(name: params['name'], email: params['email'], password: params['password'])
+    @user.update(user_params)
     redirect to '/admin'
   end
 
@@ -143,8 +142,15 @@ class ApplicationController < Sinatra::Base
 
   post '/new' do
     puts params
-    User.create(name: params['name'], email: params['email'], password: params['password'])
+    User.create(user_params)
     redirect to '/admin'
   end
+
+  private
+
+    def user_params
+      {name: params['name'], email: params['email'], password: params['password']}
+    end
+
 
 end

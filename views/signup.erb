@@ -5,21 +5,24 @@
   <div>
     <p>
       <label for="name">Name:</label>
-      <input type="text" name="name">
+      <%= "<input type='text' name='name' value='#{@name}'>" %>
+      <%= @error_message_name%>
     </p>
   </div>
 
   <div>
     <p>
       <label for="email">Email:</label>
-      <input type="text" name="email">
+      <%= "<input type='text' name='email' value='#{@email}'>" %>
+      <%= @error_message_email%>
     </p>
   </div>
 
   <div>
     <p>
       <label for="password">Password:</label>
-      <input type="text" name="password">
+      <%= "<input type='text' name='password' value='#{@password}'>" %>
+      <%= @error_message_password%>
     </p>
   </div>
 

@@ -107,11 +107,44 @@ class ApplicationController < Sinatra::Base
     erb :logout
   end
 
+  get '/admin' do
+    @users = User.all
+    puts @users.inspect
+    erb :admin
+  end
+
+  get '/edit/:id' do
+    id = params[:id]
+    @user = User.find(id)
+    erb :edit
+  end
+
+  post '/edit/:id' do
+    id = params['id']
+    @user = User.find(id)
+    @user.update(name: params['name'], email: params['email'], password: params['password'])
+    redirect to '/admin'
+  end
+
   get '/all' do
     puts User.all.inspect
   end
 
+  get '/delete/:id' do
+    id = params[:id]
+    @user = User.find(id)
+    @user.destroy
+    redirect to '/admin'
+  end
 
+  get '/new' do
+    erb :new
+  end
 
+  post '/new' do
+    puts params
+    User.create(name: params['name'], email: params['email'], password: params['password'])
+    redirect to '/admin'
+  end
 
 end

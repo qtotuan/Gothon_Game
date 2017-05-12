@@ -1,0 +1,29 @@
+<h1>Admin</h1>
+
+
+<h3>Users</h3>
+<div class="wrapper">
+  <table class='table'>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+      </tr>
+
+      <% @users.map do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.password %></td>
+          <td><button><%= "<a href='/edit/#{user.id}'>Edit</a>" %></button></td>
+          <td><button><%= "<a href='/delete/#{user.id}'>Delete</a>" %></button></td>
+        </tr>
+      <% end %>
+
+  </table>
+
+  <p><button><a href='/new'>Create New User</a></button></p>
+
+</div><!-- wrapper -->

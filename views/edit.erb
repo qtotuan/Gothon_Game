@@ -1,0 +1,15 @@
+<h1><%= @user.email %></h1>
+
+<%= "<form method='post' action='/edit/#{@user.id}'>" %>
+  <input type='hidden' name='_method' value='put' />
+  <p><label for="name">User Name</label>
+  <%= "<input type='text' name='name' value='#{@user.name}'>" %></p>
+  <p><label for='email'>Email</label>
+  <%= "<input type='text' name='email' value='#{@user.email}'>" %></p>
+  <p><label for='password'>Password</label>
+  <%= "<input type='text' name='password' value='#{@user.password}'>" %></p>
+  <p><input type='submit' value='Update'></p>
+</form>
+
+
+<p><button>Back</button></p>

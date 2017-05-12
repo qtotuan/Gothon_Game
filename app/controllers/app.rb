@@ -80,7 +80,7 @@ class ApplicationController < Sinatra::Base
     else
       params['name'] == "" ? @error_message_name = "Please indicate your name" : @name = params['name']
       params['email'] == "" ? @error_message_email = "Please indicate your email" : @email = params['email']
-      params['password'] == "" ? @error_message_password = "Please indicate your password" : @password = params['password']
+      params['password'] == "" ? @error_message_password = "Please choose a password" : @password = params['password']
       erb :signup
     end
   end

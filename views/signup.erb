@@ -6,7 +6,7 @@
     <p>
       <label for="name">Name:</label>
       <%= "<input type='text' name='name' value='#{@name}'>" %>
-      <%= @error_message_name%>
+      <span class="error"><%= @error_message_name%></span>
     </p>
   </div>
 
@@ -14,15 +14,15 @@
     <p>
       <label for="email">Email:</label>
       <%= "<input type='text' name='email' value='#{@email}'>" %>
-      <%= @error_message_email%>
+      <span class="error"><%= @error_message_email%></span>
     </p>
   </div>
 
   <div>
     <p>
       <label for="password">Password:</label>
-      <%= "<input type='text' name='password' value='#{@password}'>" %>
-      <%= @error_message_password%>
+      <%= "<input type='password' name='password' value='#{@password}'>" %>
+      <span class="error"><%= @error_message_password%></span>
     </p>
   </div>
 
